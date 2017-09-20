@@ -1,0 +1,85 @@
+/**
+ * 
+ */
+package dao.impl;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import dao.VendorsDAO;
+import dto.Vendors;
+
+/**
+ * @author Pratik
+ *
+ */
+public class VendorsDaoImpl implements VendorsDAO {
+	private Map<Vendors,String> map;
+	/**
+	 * 
+	 */
+	public VendorsDaoImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+
+	/**
+	 * @param map
+	 */
+	public VendorsDaoImpl(Map<Vendors, String> map) {
+		super();
+		this.map = map;
+	}
+
+
+
+	/**
+	 * @return the map
+	 */
+	public Map<Vendors, String> getMap() {
+		return map;
+	}
+
+
+
+	/**
+	 * @param map the map to set
+	 */
+	public void setMap(Map<Vendors, String> map) {
+		this.map = map;
+	}
+
+
+
+	/* (non-Javadoc)
+	 * @see dao.VendorsDAO#listAllVendors()
+	 */
+	@Override
+	public List<Vendors> listAllVendors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see dao.VendorsDAO#vendorsDeptWise()
+	 */
+	@Override
+	public List<Vendors> vendorsDeptWise(String department) {
+		List<Vendors> list=new ArrayList<Vendors>();
+		Set<Entry<Vendors,String>> set=map.entrySet();
+		Iterator<Entry<Vendors,String>> itr=set.iterator();
+		while(itr.hasNext()) {
+			Map.Entry<Vendors, String> entry=itr.next();
+			if(entry.getValue().equals(department)) {
+				list.add(entry.getKey());
+			}
+		}
+		return list;
+	}
+	
+}
