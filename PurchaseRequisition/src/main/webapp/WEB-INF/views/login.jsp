@@ -2,28 +2,99 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Page</title>
-</head>
-<body>
-	<h2>
-		<marquee>Welcome to Dalmia Group</marquee>
-	</h2>
-	<center>
-	<form action="./login" method="post">
-		<table>
-			<tr>
-				<td>Enter the User ID</td>
-				<td><input type="text" name="userid" /></td>
-			</tr>
-			<tr>
-				<td>Enter the password</td>
-				<td><input type="password" name="password" /></td>
-			</tr>
-		</table>
-		<input type="submit" value="login"> 
-	</form>
-	</center>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Login Page</title>
+		<style>
+			body {
+                background-image:url('/images/image.jpg');
+                background-repeat: no-repeat;
+            }
+			
+           /* Full-width input fields */
+           input[type=text], input[type=password] {
+               width: 100%;
+               padding: 12px 20px;
+               margin: 8px 0;
+               display: inline-block;
+               border: 1px solid #ccc;
+               box-sizing: border-box;
+           }
+
+           /* Set a style for all buttons */
+           button {
+               background-color: #368BC1;
+               color: white;
+               padding: 14px 20px;
+               margin: 8px 0;
+               border: none;
+               cursor: pointer;
+               width: 40%;
+               font-size: 15px;
+               font-weight: bold;
+               border-radius: 5px;
+           }
+
+           /* Add padding to container elements */
+           .container {
+               width: 350px;
+               margin: 0 auto;
+               padding: 16px;
+               border: 1px cornflowerblue solid;
+               border-radius: 10px;
+           }
+
+           /* Clear floats */
+           .clearfix::after {
+               content: "";
+               clear: both;
+               display: table;
+           }
+
+           /* Change styles for cancel button and signup button on extra small screens */
+           @media screen and (max-width: 300px) {
+               .cancelbtn, .signupbtn {
+                  width: 50%;
+               }
+           }
+           
+           /* Centering the content */
+           .outer {
+               display: table;
+               position: absolute;
+               height: 95%;
+               width: 95%;
+           }
+           .middle {
+               display: table-cell;
+               vertical-align: middle;
+           }
+           .inner {
+               margin-left: auto;
+               margin-right: auto;     
+           }
+       </style>
+	</head>
+	<body style="font-family: Arial, Helvetica, sans-serif;">
+		<form action="./login" method="post">
+            <div class="outer">
+                <div class="middle">
+                    <div class="inner">
+                    	<div style="font-size: 20px; text-align: center; color: #368BC1;">
+                            <b>Welcome to Dalmia Group</b><br/><br/>
+                        </div>
+                        <div class="container">
+                            <label><b>User ID</b></label>
+                            <input type="text" placeholder="Enter User Id" name="userid" id="userid" required>
+                            <label><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                            <div class="clearfix" style="text-align: center">
+                                <button type="submit" >Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
 </html>
