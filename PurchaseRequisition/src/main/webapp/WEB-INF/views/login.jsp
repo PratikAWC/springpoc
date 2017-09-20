@@ -73,6 +73,7 @@
                margin-left: auto;
                margin-right: auto;     
            }
+           
        </style>
 	</head>
 	<body style="font-family: Arial, Helvetica, sans-serif;">

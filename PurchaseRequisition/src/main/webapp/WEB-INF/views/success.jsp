@@ -18,25 +18,24 @@
 					<!-- <td>Type</td><td>Name</td><td>Category</td><td>Description</td><td>Amount</td> -->
 				</tr>
 				<c:forEach items="${pr}" var="prs">
-				<tr style="height: 30px;">
-					<td style=" text-align: center;">${prs.type}</td>
-					<td style=" text-align: center;">${prs.name}</td>
-					<td style=" text-align: center;">${prs.category}</td>
-				  	<td style=" text-align: center;">${prs.description}</td> 
-				  	<td style="width: 20%;">
-				  		<table>
-				  			<tr>
-				  				<td style="width: 150px; text-align: center;">${prs.amount}</td>
-				  				<td style="text-align: right;">
-				  					<a href="./vendors?category=${prs.category}">
-							  			<button style="background-color: #368BC1; color: white; border-radius: 5px; width: 90px; height: 25px; border-bottom-right-radius: 15px; border-top-left-radius: 15px;">Vendor</button>
-							  		</a>
-				  				</td>
-				  			</tr>
-				  		</table>
-				  		
-				  	</td>
-				<tr>
+					<tr style="height: 30px;">
+						<td style=" text-align: center;">${prs.type}</td>
+						<td style=" text-align: center;">${prs.name}</td>
+						<td style=" text-align: center;">${prs.category}</td>
+					  	<td style=" text-align: center;">${prs.description}</td> 
+					  	<td style="width: 20%;">
+					  		<table>
+					  			<tr>
+					  				<td style="width: 150px; text-align: center;">${prs.amount}</td>
+					  				<td style="text-align: right;">
+					  					<a href="./vendors?type=${prs.type}">
+								  			<button style="background-color: #368BC1; color: white; border-radius: 5px; width: 90px; height: 25px; border-bottom-right-radius: 15px; border-top-left-radius: 15px;">Vendor</button>
+								  		</a>
+					  				</td>
+					  			</tr>
+					  		</table>				  		
+					  	</td>
+					<tr>
 				</c:forEach>
 			</table>
 		</center>
