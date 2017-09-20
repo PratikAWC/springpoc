@@ -27,10 +27,16 @@ public class VendorsController {
 	public VendorsController() {
 		// TODO Auto-generated constructor stub
 	}
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value="vendors", method=RequestMethod.GET)
 	public String getVendors(@RequestParam String type,ModelMap map) {
 		map.put("category", dao.vendorsDeptWise(type));
 		//System.out.println(dao.vendorsDeptWise(type));
 		return "vendors";
+	}
+	@RequestMapping(value="sendNotification",method=RequestMethod.POST)
+	public void sendNotification(@RequestParam String[] pan) {
+		for(String data:pan) {
+			System.out.println(data);
+		}
 	}
 }
