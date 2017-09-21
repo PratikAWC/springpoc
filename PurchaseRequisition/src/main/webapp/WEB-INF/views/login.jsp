@@ -6,19 +6,40 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Login Page</title>
 		<style>
-			body {
-                background-image:url('/images/image.jpg');
+			#grad1 {
+			    /*height: 200px;
+			    background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1));
+			    background: -o-linear-gradient(right, rgba(255,0,0,0), rgba(255,0,0,1));
+			    background: -moz-linear-gradient(right, rgba(255,0,0,0), rgba(255,0,0,1));
+			    background: linear-gradient(to right, rgba(255,0,0,0), rgba(95,0,0,1));
+			    */
+			    
+			    height: 300px;
+                background-color: #FFFFFF;
+                /* For WebKit (Safari, Chrome, etc) */
+                background: #FFFFFF -webkit-gradient(linear, left top, left bottom, from(#73ADC0), to(#FFFFFF)) no-repeat;
+                /* Mozilla,Firefox/Gecko */
+                background: #FFFFFF -moz-linear-gradient(top, #73ADC0, #FFFFFF) no-repeat;
+                /* IE 5.5 - 7 */
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#73ADC0, endColorstr=#FFFFFF) no-repeat;
+                /* IE 8 */
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#73ADC0, endColorstr=#73ADC0)" no-repeat;
+			    
+			}
+			/*body {
+                background-image:url('images/image.jpg');
                 background-repeat: no-repeat;
-            }
-			
+            }*/
            /* Full-width input fields */
            input[type=text], input[type=password] {
-               width: 100%;
-               padding: 12px 20px;
-               margin: 8px 0;
-               display: inline-block;
-               border: 1px solid #ccc;
-               box-sizing: border-box;
+              	width: 100%;
+				padding: 12px 20px;
+               	margin: 8px 0;
+               	display: inline-block;
+               	border: 1px solid #ccc;
+               	border-color: tomato;
+               	border-radius: 5px;
+               	box-sizing: border-box;
            }
 
            /* Set a style for all buttons */
@@ -76,12 +97,12 @@
            
        </style>
 	</head>
-	<body style="font-family: Arial, Helvetica, sans-serif;">
+	<body id="grad1" style="font-family: Arial, Helvetica, sans-serif;">
 		<form action="./login" method="post">
             <div class="outer">
                 <div class="middle">
                     <div class="inner">
-                    	<div style="font-size: 20px; text-align: center; color: #368BC1;">
+                    	<div style="font-size: 20px; text-align: center; color: navy;">
                             <b>Welcome to Dalmia Group</b><br/><br/>
                         </div>
                         <div class="container">
