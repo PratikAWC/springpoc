@@ -13,4 +13,5 @@ import dto.PurchaseRequisition;
  */
 public interface PurchaseOrder {
 	public List<PurchaseRequisition> listPR();
+	public PurchaseRequisition listPR(String name);
 }

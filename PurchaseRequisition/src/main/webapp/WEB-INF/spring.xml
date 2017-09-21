@@ -71,48 +71,77 @@
     </bean>
     
     <bean id="v1" class="dto.Vendors">
+    	<property name="pr">
+    		<set></set>
+    	</property>
     	<property name="name" value="AWC Software"/>
     	<property name="type" value="IT"/>
     	<property name="pan" value="BFNPG4347H"/>
     	<property name="registeredaddress" value="Delhi"/>
     </bean>
     <bean id="v2" class="dto.Vendors">
+    	<property name="pr">
+    		<set></set>
+    	</property>
     	<property name="name" value="ABC Projectors"/>
     	<property name="type" value="Inventory"/>
     	<property name="pan" value="BFGXY1278G"/>
     	<property name="registeredaddress" value="Noida"/>
     </bean>
     <bean id="v3" class="dto.Vendors">
+    <property name="pr">
+    		<set></set>
+    	</property>
     	<property name="name" value="Exel HR"/>
     	<property name="type" value="Service"/>
     	<property name="pan" value="BFNYU4598J"/>
     	<property name="registeredaddress" value="Gurugram"/>
     </bean>
     <bean id="v4" class="dto.Vendors">
+    <property name="pr">
+    		<set>
+    			<!-- <ref bean="pr2"/> -->
+    		</set>
+    	</property>
     	<property name="name" value="Aplha Technologies"/>
     	<property name="type" value="Inventory"/>
     	<property name="pan" value="DFNPG6738L"/>
     	<property name="registeredaddress" value="GOA"/>
     </bean>
     <bean id="v5" class="dto.Vendors">
+    <property name="pr">
+    		<set></set>
+    	</property>
     	<property name="name" value="XYZ Tech"/>
     	<property name="type" value="IT"/>
     	<property name="pan" value="GFNPG4347H"/>
     	<property name="registeredaddress" value="Delhi"/>
     </bean>
     <bean id="v6" class="dto.Vendors">
+    <property name="pr">
+    		<set>
+    			 
+    		</set>
+    	</property>
     	<property name="name" value="Rohit Projections"/>
     	<property name="type" value="Inventory"/>
     	<property name="pan" value="TGFXY1278G"/>
     	<property name="registeredaddress" value="Tamil Nadu"/>
     </bean>
     <bean id="v7" class="dto.Vendors">
+    <property name="pr">
+    		<set>
+    		</set>
+    	</property>
     	<property name="name" value="HR Infrastructures"/>
     	<property name="type" value="Service"/>
     	<property name="pan" value="YONYU4598J"/>
     	<property name="registeredaddress" value="Andhra Pradesh"/>
     </bean>
     <bean id="v8" class="dto.Vendors">
+    <property name="pr">
+    		<set></set>
+    	</property>
     	<property name="name" value="Beta Technologies"/>
     	<property name="type" value="Inventory"/>
     	<property name="pan" value="CFNPG6738L"/>

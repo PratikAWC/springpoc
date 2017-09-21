@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import dao.PurchaseOrder;
 import dao.VendorsDAO;
+import dao.impl.PurchaseOrderImpl;
 
 
 /**
@@ -21,6 +23,8 @@ import dao.VendorsDAO;
 public class VendorsController {
 	@Autowired
 	private VendorsDAO dao;
+	@Autowired
+	private PurchaseOrder po;
 	/**
 	 * 
 	 */
@@ -28,15 +32,15 @@ public class VendorsController {
 		// TODO Auto-generated constructor stub
 	}
 	@RequestMapping(value="vendors", method=RequestMethod.GET)
-	public String getVendors(@RequestParam String type,ModelMap map) {
-		map.put("category", dao.vendorsDeptWise(type));
-		//System.out.println(dao.vendorsDeptWise(type));
+	public String getVendors(@RequestParam String type,@RequestParam String name,ModelMap map) {
+		map.put("name", name);
+		map.put("category", dao.vendorsDeptWise(type,name));
 		return "vendors";
 	}
 	@RequestMapping(value="sendNotification",method=RequestMethod.POST)
-	public void sendNotification(@RequestParam String[] pan) {
-		for(String data:pan) {
-			System.out.println(data);
-		}
+	public String sendNotification(@RequestParam String name,@RequestParam String[] pan) {
+		System.out.println("Hey There !!");
+		//dao.addPR(pan, po.listPR(name));
+		return "redirect:vendors";
 	}
 }

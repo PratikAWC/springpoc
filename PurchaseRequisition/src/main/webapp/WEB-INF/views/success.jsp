@@ -28,7 +28,7 @@
 					  			<tr>
 					  				<td style="width: 150px; text-align: center;">${prs.amount}</td>
 					  				<td style="text-align: right;">
-					  					<a href="./vendors?type=${prs.type}">
+					  					<a href="./vendors?name=${prs.name}&type=${prs.type}">
 								  			<button style="background-color: #368BC1; color: white; border-radius: 5px; width: 90px; height: 25px; border-bottom-right-radius: 15px; border-top-left-radius: 15px;">Vendor</button>
 								  		</a>
 					  				</td>

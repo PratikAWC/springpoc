@@ -4,13 +4,17 @@
 package dao.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import dao.PurchaseOrder;
 import dao.VendorsDAO;
+import dto.PurchaseRequisition;
 import dto.Vendors;
 
 /**
@@ -26,8 +30,6 @@ public class VendorsDaoImpl implements VendorsDAO {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
 	/**
 	 * @param map
 	 */
@@ -36,16 +38,12 @@ public class VendorsDaoImpl implements VendorsDAO {
 		this.map = map;
 	}
 
-
-
 	/**
 	 * @return the map
 	 */
 	public Map<Vendors, String> getMap() {
 		return map;
 	}
-
-
 
 	/**
 	 * @param map the map to set
@@ -54,32 +52,64 @@ public class VendorsDaoImpl implements VendorsDAO {
 		this.map = map;
 	}
 
-
-
 	/* (non-Javadoc)
 	 * @see dao.VendorsDAO#listAllVendors()
 	 */
 	@Override
-	public List<Vendors> listAllVendors() {
+	public Set<Vendors> listAllVendors() {
 		// TODO Auto-generated method stub
-		return null;
+		return map.keySet();
 	}
 
 	/* (non-Javadoc)
 	 * @see dao.VendorsDAO#vendorsDeptWise()
 	 */
 	@Override
-	public List<Vendors> vendorsDeptWise(String department) {
+	public List<Vendors> vendorsDeptWise(String department,String name) {
 		List<Vendors> list=new ArrayList<Vendors>();
 		Set<Entry<Vendors,String>> set=map.entrySet();
 		Iterator<Entry<Vendors,String>> itr=set.iterator();
 		while(itr.hasNext()) {
 			Map.Entry<Vendors, String> entry=itr.next();
 			if(entry.getValue().equals(department)) {
-				list.add(entry.getKey());
+				Vendors v=entry.getKey();
+				
+				Set<PurchaseRequisition> prset=v.getPr();
+				int flag=0;
+				Iterator<PurchaseRequisition> psitr=prset.iterator();
+				
+				while(psitr.hasNext()) {
+					PurchaseRequisition pr=psitr.next();
+					if(pr.getName().equals(name)) {
+						flag++;
+					}
+				}
+				if(flag==0) {
+					list.add(v);
+				}
 			}
 		}
 		return list;
 	}
+
+	@Override
+	public boolean addPR(String[] pan,PurchaseRequisition pr) {
+		Set<Entry<Vendors,String>> set=map.entrySet();
+		LinkedHashSet<PurchaseRequisition> lhs=new LinkedHashSet<PurchaseRequisition>();
+		Iterator itr=set.iterator();
+		while(itr.hasNext()) {
+			Map.Entry<Vendors, String> entry=(Entry<Vendors, String>)itr.next();
+			Vendors vendor=entry.getKey();
+			for(String data:pan) {
+				if(vendor.getName().equals(data)) {
+					lhs.add(pr);
+					vendor.setPr(lhs);
+				}
+			}
+		}
+		return false;
+	}
+
+	
 	
 }

@@ -2,9 +2,10 @@
  * 
  */
 package dao;
-
 import java.util.List;
+import java.util.Set;
 
+import dto.PurchaseRequisition;
 import dto.Vendors;
 
 /**
@@ -12,6 +13,7 @@ import dto.Vendors;
  *
  */
 public interface VendorsDAO {
-	public List<Vendors> listAllVendors();
-	public List<Vendors> vendorsDeptWise(String department);
+	public Set<Vendors> listAllVendors();
+	public List<Vendors> vendorsDeptWise(String department,String name);
+	public boolean addPR(String[] pan,PurchaseRequisition po);
 }

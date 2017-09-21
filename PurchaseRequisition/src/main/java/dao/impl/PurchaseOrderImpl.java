@@ -2,6 +2,7 @@
  * 
  */
 package dao.impl;
+import java.util.Iterator;
 import java.util.List;
 import dao.PurchaseOrder;
 import dto.PurchaseRequisition;
@@ -49,6 +50,18 @@ public class PurchaseOrderImpl implements PurchaseOrder {
 	public List<PurchaseRequisition> listPR() {
 		return list;
 	}
+	@Override
+	public PurchaseRequisition listPR(String name) {
+		PurchaseRequisition pr=null;
+		Iterator<PurchaseRequisition> itr=list.iterator();
+		while(itr.hasNext()) {
+			PurchaseRequisition local=itr.next();
+			if(local.getName().equals(name)) {
+				pr=local;
+			}
+		}
+		return pr;
+	}
 		/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -87,5 +100,7 @@ public class PurchaseOrderImpl implements PurchaseOrder {
 			return false;
 		return true;
 	}
+
+	
 	
 }
