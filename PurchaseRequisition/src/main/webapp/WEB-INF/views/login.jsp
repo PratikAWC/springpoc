@@ -7,13 +7,6 @@
 		<title>Login Page</title>
 		<style>
 			#grad1 {
-			    /*height: 200px;
-			    background: -webkit-linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1));
-			    background: -o-linear-gradient(right, rgba(255,0,0,0), rgba(255,0,0,1));
-			    background: -moz-linear-gradient(right, rgba(255,0,0,0), rgba(255,0,0,1));
-			    background: linear-gradient(to right, rgba(255,0,0,0), rgba(95,0,0,1));
-			    */
-			    
 			    height: 300px;
                 background-color: #FFFFFF;
                 /* For WebKit (Safari, Chrome, etc) */
@@ -23,13 +16,8 @@
                 /* IE 5.5 - 7 */
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#73ADC0, endColorstr=#FFFFFF) no-repeat;
                 /* IE 8 */
-                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#73ADC0, endColorstr=#73ADC0)" no-repeat;
-			    
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#73ADC0, endColorstr=#73ADC0)" no-repeat;			    
 			}
-			/*body {
-                background-image:url('images/image.jpg');
-                background-repeat: no-repeat;
-            }*/
            /* Full-width input fields */
            input[type=text], input[type=password] {
               	width: 100%;

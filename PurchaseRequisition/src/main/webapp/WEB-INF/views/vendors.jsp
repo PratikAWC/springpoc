@@ -21,12 +21,12 @@
             });
         </script>
 	</head>
-	<body><br/>
-		<form action="./sendNotification" method="post">
+	<body><br/> 
+		<form action="./sendNotification" method="post">		
 			<center>
 			<table border="1" style="width: 90%; border-collapse: collapse; border-color: #006400;">
 				<tr style="height: 35px; text-align: center; color: white; background-color: #368BC1;">
-					<td><input type="checkbox" name="ckbCheckAll" id="ckbCheckAll"/>ALL</td>
+					<td><input type="checkbox" name="ckbCheckAll" id="ckbCheckAll" title="Select"/></td>
 					<td>PAN NO.</td><td>NAME</td><td>TYPE</td><td>REGISTERED ADDRESS</td>
 				</tr>
 				<c:forEach items="${category}" var="cat">
