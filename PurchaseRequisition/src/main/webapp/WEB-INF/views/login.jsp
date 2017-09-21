@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Login Page</title>
+		<title>Admin Login Page</title>
 		<style>
 			#grad1 {
 			    height: 300px;
