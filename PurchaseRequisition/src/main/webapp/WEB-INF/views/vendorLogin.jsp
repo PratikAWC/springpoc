@@ -85,9 +85,9 @@
            
        </style>
 	</head>
-	<body id="grad1" style="font-family: Arial, Helvetica, sans-serif;">
+	<body id="grad1" style="font-family: Arial, Helvetica, sans-serif;">		
 		<form action="./vendorLogin" method="post">
-            <div class="outer">
+            <div class="outer">            	
                 <div class="middle">
                     <div class="inner">
                     	<div style="font-size: 20px; text-align: center; color: navy;">
