@@ -5,7 +5,9 @@
    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
    
    <welcome-file-list>
-   		<welcome-file>/WEB-INF/views/login.jsp</welcome-file>
+   		
+   		 <welcome-file>/WEB-INF/views/login.jsp</welcome-file>
+   		<!--  <welcome-file>/WEB-INF/views/vendorLogin.jsp</welcome-file> --> 
    </welcome-file-list>
    
    <servlet>

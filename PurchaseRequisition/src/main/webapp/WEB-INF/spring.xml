@@ -72,7 +72,9 @@
     
     <bean id="v1" class="dto.Vendors">
     	<property name="pr">
-    		<set></set>
+    		<set>
+    			<ref bean="pr1"/>
+    		</set>
     	</property>
     	<property name="name" value="AWC Software"/>
     	<property name="type" value="IT"/>
@@ -110,7 +112,9 @@
     </bean>
     <bean id="v5" class="dto.Vendors">
     <property name="pr">
-    		<set></set>
+    		<set>
+    			
+    		</set>
     	</property>
     	<property name="name" value="XYZ Tech"/>
     	<property name="type" value="IT"/>
@@ -140,7 +144,8 @@
     </bean>
     <bean id="v8" class="dto.Vendors">
     <property name="pr">
-    		<set></set>
+    		<set>
+    		</set>
     	</property>
     	<property name="name" value="Beta Technologies"/>
     	<property name="type" value="Inventory"/>

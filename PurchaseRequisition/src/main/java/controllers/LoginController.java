@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import dao.PurchaseOrder;
+import dao.VendorsDAO;
 import validation.Validator;
 
 /**
@@ -23,13 +24,15 @@ public class LoginController {
 	private Validator service;
 	@Autowired
 	private PurchaseOrder po;
-	
+	@Autowired
+	VendorsDAO dao;
 	/**
 	 * 
 	 */
 	public LoginController() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	public String login(@RequestParam String userid,@RequestParam String password,ModelMap map) {
@@ -43,4 +46,17 @@ public class LoginController {
 			return "login";
 		}
 	}
+	
+	@RequestMapping(value="vendorLogin",method=RequestMethod.POST)
+	public String vendorlogin(@RequestParam String vendorid,@RequestParam String password,ModelMap map) {
+		if(password.equals("vendor") && (dao.getVendor(vendorid)!=null)) {
+			map.put("user", dao.getVendor(vendorid));
+			return "vendorHome";
+		}
+		else {
+			map.put("error", "Invalid Credentials");
+			return "vendorLogin";
+		}
+	}
+	
 }

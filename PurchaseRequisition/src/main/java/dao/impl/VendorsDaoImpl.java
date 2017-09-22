@@ -111,6 +111,21 @@ public class VendorsDaoImpl implements VendorsDAO {
 		return false;
 	}
 
+	@Override
+	public Vendors getVendor(String pan) {
+		Vendors local=null;
+		Set<Entry<Vendors,String>> set=map.entrySet();
+		Iterator<Entry<Vendors,String>> itr=set.iterator();
+		while(itr.hasNext()) {
+			Map.Entry<Vendors, String> entry=itr.next();
+			Vendors vendor=entry.getKey();
+			if(vendor.getPan().equals(pan)) {
+				local=vendor;
+			}
+		}
+		return local;
+	}
+
 	
 	
 }
