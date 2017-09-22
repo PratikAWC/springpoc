@@ -6,8 +6,8 @@
    
    <welcome-file-list>
    		
-   		 <welcome-file>/WEB-INF/views/login.jsp</welcome-file>
-   		<!--  <welcome-file>/WEB-INF/views/vendorLogin.jsp</welcome-file> --> 
+   		 <!-- <welcome-file>/WEB-INF/views/login.jsp</welcome-file> -->
+   		  <welcome-file>/WEB-INF/views/vendorLogin.jsp</welcome-file> 
    </welcome-file-list>
    
    <servlet>

@@ -50,6 +50,7 @@ public class LoginController {
 	@RequestMapping(value="vendorLogin",method=RequestMethod.POST)
 	public String vendorlogin(@RequestParam String vendorid,@RequestParam String password,ModelMap map) {
 		if(password.equals("vendor") && (dao.getVendor(vendorid)!=null)) {
+			System.out.println("Vendor :"+dao.getVendor(vendorid));
 			map.put("user", dao.getVendor(vendorid));
 			return "vendorHome";
 		}
