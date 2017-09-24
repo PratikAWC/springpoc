@@ -10,7 +10,7 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<mvc:resources location="/webjars/" mapping="/webjars/**"/>
+	
     
     <mvc:annotation-driven/>
    	<context:annotation-config/>
@@ -73,7 +73,7 @@
     <bean id="v1" class="dto.Vendors">
     	<property name="pr">
     		<set>
-    			<ref bean="pr1"/>
+    			<!-- <ref bean="pr1"/> -->
     		</set>
     	</property>
     	<property name="name" value="AWC Software"/>

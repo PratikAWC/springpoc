@@ -41,13 +41,18 @@ public class LoginController {
 			map.put("pr", po.listPR());
 			return "success";
 		}
+		else if(password.equals("vendor") && (dao.getVendor(userid)!=null)) {
+			System.out.println("Vendor :"+dao.getVendor(userid));
+			map.put("user", dao.getVendor(userid));
+			return "vendorHome";
+		}
 		else {
 			map.put("error", "Invalid Credentials");
 			return "login";
 		}
 	}
 	
-	@RequestMapping(value="vendorLogin",method=RequestMethod.POST)
+	/*@RequestMapping(value="vendorLogin",method=RequestMethod.POST)
 	public String vendorlogin(@RequestParam String vendorid,@RequestParam String password,ModelMap map) {
 		if(password.equals("vendor") && (dao.getVendor(vendorid)!=null)) {
 			System.out.println("Vendor :"+dao.getVendor(vendorid));
@@ -58,6 +63,6 @@ public class LoginController {
 			map.put("error", "Invalid Credentials");
 			return "vendorLogin";
 		}
-	}
+	}*/
 	
 }
