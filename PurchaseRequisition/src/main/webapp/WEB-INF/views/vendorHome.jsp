@@ -5,7 +5,23 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Vendor</title>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+		</script>
+		<script>
+			$(document).ready(function() {
+				$("#ckbCheckAll").click(function() {
+					$(".checkBoxClass").prop('checked', $(this).prop('checked'));
+				});
+		
+				$(".checkBoxClass").change(function() {
+					if (!$(this).prop("checked")) {
+						$("#ckbCheckAll").prop("checked", false);
+					}
+				});
+			});
+		</script>
 	</head>
 	<body style="font-family: Arial, Helvetica, sans-serif;">
 		<div style="color: #368BC1; text-align: right; width: 90%; font-size: 16px; font-weight: bold;">Welcome, ${user.name}</div>
@@ -45,13 +61,16 @@
 		<!-- **************************************************************************** -->
 		<table border="1" style="width: 50%; border-collapse: collapse; border-color: #006400; margin: 0 auto;">
 			<tr style="height: 35px; text-align: center; color: navy; background-color: #F5F5F5; font-weight: bold;">
+				<td>
+					<input type="checkbox" name="ckbCheckAll" id="ckbCheckAll" title="Select" />
+				</td>
 				<td>TYPE</td><td>NAME</td><td>CATEGORY</td><td>DESCRIPTION</td><td>AMOUNT</td>
 			</tr>
 			<c:forEach items="${user.pr}" var="pr">
 				<tr style="height: 30px; text-align: center;">
 				<!-- **************************************************************************** -->
 					<td>
-						<input type="checkbox" name="pr" value="${pr.name}">
+						<input type="checkbox" name="pr" id="pr" class="checkBoxClass" value="${pr.name}">
 					</td>
 				<!-- **************************************************************************** -->	
 					<td>			
@@ -67,12 +86,15 @@
 						${pr.description} 
 					</td>
 					<td>			
-						${pr.amount} 
+						${pr.amount}
 					</td>
 				</tr>
 			</c:forEach>
 		</table>
-			<input type="submit" value="acknowledge">
+		<br/><br/>
+		<div style="margin: 0 auto;">
+			<input type="submit" name="btnack" id="btnack" style="background-color: #368BC1; color: white; border-radius: 5px; font-size: 18px; width: 150px; height: 45px; border-bottom-right-radius: 15px; border-top-left-radius: 15px;" value="Acknowledge" />
+		</div>
 		</form>
 	</body>
 </html>
