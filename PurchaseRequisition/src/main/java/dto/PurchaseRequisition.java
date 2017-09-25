@@ -3,6 +3,8 @@
  */
 package dto;
 
+import java.util.Map;
+
 /**
  * @author Pratik
  *
@@ -10,27 +12,33 @@ package dto;
 public class PurchaseRequisition {
 
 	private String type,name,category,description,amount;
+	private Map<Vendors,Float> vendorPrice;
 	/**
 	 * 
 	 */
 	public PurchaseRequisition() {
 		//System.out.println(toString());
 	}
+	
 	/**
 	 * @param type
 	 * @param name
 	 * @param category
 	 * @param description
 	 * @param amount
+	 * @param vendorPrice
 	 */
-	public PurchaseRequisition(String type, String name, String category, String description, String amount) {
+	public PurchaseRequisition(String type, String name, String category, String description, String amount,
+			Map<Vendors, Float> vendorPrice) {
 		super();
 		this.type = type;
 		this.name = name;
 		this.category = category;
 		this.description = description;
 		this.amount = amount;
+		this.vendorPrice = vendorPrice;
 	}
+
 	/**
 	 * @return the type
 	 */
@@ -91,14 +99,30 @@ public class PurchaseRequisition {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
+	
+	/**
+	 * @return the vendorPrice
+	 */
+	public Map<Vendors, Float> getVendorPrice() {
+		return vendorPrice;
+	}
+
+	/**
+	 * @param vendorPrice the vendorPrice to set
+	 */
+	public void setVendorPrice(Map<Vendors, Float> vendorPrice) {
+		this.vendorPrice = vendorPrice;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "PurchaseRequisition [type=" + type + ", name=" + name + ", category=" + category + ", description="
-				+ description + ", amount=" + amount + "]";
+				+ description + ", amount=" + amount + ", vendorPrice=" + vendorPrice + "]";
 	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -111,8 +135,10 @@ public class PurchaseRequisition {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((vendorPrice == null) ? 0 : vendorPrice.hashCode());
 		return result;
 	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -149,6 +175,11 @@ public class PurchaseRequisition {
 			if (other.type != null)
 				return false;
 		} else if (!type.equals(other.type))
+			return false;
+		if (vendorPrice == null) {
+			if (other.vendorPrice != null)
+				return false;
+		} else if (!vendorPrice.equals(other.vendorPrice))
 			return false;
 		return true;
 	}
