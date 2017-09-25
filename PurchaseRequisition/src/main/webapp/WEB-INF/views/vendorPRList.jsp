@@ -12,8 +12,9 @@
 	Hi ${vendor.name}
 	<br>
 	<br>
-	You Open notifications
+	Your Open notifications
 	<form action="./acknowledge" method="post">
+	<input type="hidden" name="vendor" value="${vendor.pan}">
 	<d:forEach items="${openNotification}" var="openNotifications">
 	<input type="checkbox" name="prname" value="${openNotifications.name}"> ${openNotifications.type} ${openNotifications.name} ${openNotifications.category} ${openNotifications.description} ${openNotifications.amount}
 	Do You want to participate:

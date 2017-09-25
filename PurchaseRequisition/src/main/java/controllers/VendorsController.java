@@ -6,6 +6,7 @@ package controllers;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import dao.PurchaseOrder;
 import dao.VendorsDAO;
 import dao.impl.PurchaseOrderImpl;
+import dto.PurchaseRequisition;
 import dto.Vendors;
 
 
@@ -66,12 +68,40 @@ public class VendorsController {
 	@RequestMapping(value="vendorPr",method=RequestMethod.GET)
 	public String vendorPr(@RequestParam String pan,ModelMap map) {
 		map.put("vendor", dao.getVendor(pan));
-		map.put("openNotification", dao.getVendor(pan).getPr());
+		Vendors v1=dao.getVendor(pan);
+		System.out.println("=============================================");
+		System.out.println(v1.getName());
+		System.out.println(v1.getPan());
+		System.out.println(v1.getType());
+		System.out.println(v1.getRegisteredaddress());
+		System.out.println(v1.getPr());
+		System.out.println("=============================================");
+		Set<PurchaseRequisition> setx=new LinkedHashSet<PurchaseRequisition>();
+		Iterator<PurchaseRequisition> itr=dao.getVendor(pan).getPr().iterator();
+		while(itr.hasNext()) {
+			PurchaseRequisition pr=itr.next();
+			if(pr.getVendorPrice()==null) {
+				setx.add(pr);
+			}
+		}
+		map.put("openNotification", setx);
 		return "vendorPRList";
 	}
 	@RequestMapping(value="acknowledge",method=RequestMethod.POST)
-	public void acknowledge(@RequestParam String prname,@RequestParam String ack) {
+	public String acknowledge(@RequestParam String prname,@RequestParam String ack,@RequestParam String vendor,ModelMap map) {
 		System.out.println("PR Name: "+prname);
 		System.out.println("ack :"+ack);
+		if(ack.equals("no")) {
+			//System.out.println("Vendors for Updation :"+dao.getVendor(vendor));
+			PurchaseRequisition pr=po.listPR(prname);
+			lhm.put(dao.getVendor(vendor), 0.0f);
+			pr.setVendorPrice(lhm);
+			map.put("pan", vendor);
+			return "redirect:vendorPr";
+		}
+		else {
+			map.put("vendor", vendor);
+			return "bidUi";
+		}
 	}
 }
