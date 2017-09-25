@@ -3,6 +3,9 @@
  */
 package controllers;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,13 +29,16 @@ public class VendorsController {
 	private VendorsDAO dao;
 	@Autowired
 	private PurchaseOrder po;
+	private static HashMap<Vendors, Float> lhm;
 	/**
 	 * 
 	 */
 	public VendorsController() {
 		// TODO Auto-generated constructor stub
 	}
-	
+	static {
+		lhm=new LinkedHashMap<>();
+	}
 	@RequestMapping(value="vendors", method=RequestMethod.GET)
 	public String getVendors(@RequestParam String type,@RequestParam String name,ModelMap map) {
 		map.put("name", name);
@@ -57,7 +63,12 @@ public class VendorsController {
 	}
 	@RequestMapping(value="acknowledgement",method=RequestMethod.POST)
 	public void getData(@RequestParam String pr,String vendorx) {
-		System.out.println("PR :"+pr);
+		//System.out.println("PR :"+pr);
 		System.out.println("User :"+vendorx);
+		System.out.println("Earlier :"+po.listPR(pr));
+		dao.getVendor(vendorx);
+		lhm.put(dao.getVendor(vendorx), null);
+		po.listPR(pr).setVendorPrice(lhm);
+		System.out.println("Later :"+po.listPR(pr));
 	}
 }

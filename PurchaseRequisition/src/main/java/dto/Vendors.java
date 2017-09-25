@@ -98,7 +98,8 @@ public class Vendors {
 	@Override
 	public String toString() {
 		return "Vendors [name=" + name + ", pan=" + pan + ", type=" + type + ", registeredaddress=" + registeredaddress
-				+ ", pr=" + pr + "]";
+				//+ ", pr=" + pr + "]";
+				+ "]";
 	}
 
 	/* (non-Javadoc)
