@@ -4,7 +4,9 @@
 package controllers;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,14 +63,15 @@ public class VendorsController {
 		//map.put("category", dao.addPR(pan, po.listPR(name)));
 		return "redirect:vendors";
 	}
-	@RequestMapping(value="acknowledgement",method=RequestMethod.POST)
-	public void getData(@RequestParam String pr,String vendorx) {
-		//System.out.println("PR :"+pr);
-		System.out.println("User :"+vendorx);
-		System.out.println("Earlier :"+po.listPR(pr));
-		dao.getVendor(vendorx);
-		lhm.put(dao.getVendor(vendorx), null);
-		po.listPR(pr).setVendorPrice(lhm);
-		System.out.println("Later :"+po.listPR(pr));
+	@RequestMapping(value="vendorPr",method=RequestMethod.GET)
+	public String vendorPr(@RequestParam String pan,ModelMap map) {
+		map.put("vendor", dao.getVendor(pan));
+		map.put("openNotification", dao.getVendor(pan).getPr());
+		return "vendorPRList";
+	}
+	@RequestMapping(value="acknowledge",method=RequestMethod.POST)
+	public void acknowledge(@RequestParam String prname,@RequestParam String ack) {
+		System.out.println("PR Name: "+prname);
+		System.out.println("ack :"+ack);
 	}
 }

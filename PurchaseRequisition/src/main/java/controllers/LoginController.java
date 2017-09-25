@@ -42,8 +42,9 @@ public class LoginController {
 			return "success";
 		}
 		else if(password.equals("vendor") && (dao.getVendor(userid)!=null)) {
-			System.out.println("Vendor :"+dao.getVendor(userid));
+			//System.out.println("Vendor :"+dao.getVendor(userid));
 			map.put("user", dao.getVendor(userid));
+			map.put("pswd", password);
 			return "vendorHome";
 		}
 		else {

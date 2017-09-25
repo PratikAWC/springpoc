@@ -50,51 +50,6 @@
 			</tr>
 		</table>
 		<br><br>
-		<table style="width: 50%; border-color: #006400; margin: 0 auto;">
-			<tr>
-				<td style="color: #368BC1; width: 50%; font-size: 16px; font-weight: bold;">Your Notifications,</td>
-			</tr>
-		</table>			
-		<form action="./acknowledgement" method="post">
-			<!-- **************************************************************************** -->
-			<input type="hidden" name="vendorx" value="${user.pan}">
-			<!-- **************************************************************************** -->
-			<table border="1" style="width: 50%; border-collapse: collapse; border-color: #006400; margin: 0 auto;">
-				<tr style="height: 35px; text-align: center; color: navy; background-color: #F5F5F5; font-weight: bold;">
-					<td>
-						<input type="checkbox" name="ckbCheckAll" id="ckbCheckAll" title="Select" />
-					</td>
-					<td>TYPE</td><td>NAME</td><td>CATEGORY</td><td>DESCRIPTION</td><td>AMOUNT</td>
-				</tr>
-				<c:forEach items="${user.pr}" var="pr">
-					<tr style="height: 30px; text-align: center;">
-					<!-- **************************************************************************** -->
-						<td>
-							<input type="checkbox" name="pr" id="pr" class="checkBoxClass" value="${pr.name}">
-						</td>
-					<!-- **************************************************************************** -->	
-						<td>			
-							${pr.type} 
-						</td>
-						<td>			
-							${pr.name} 
-						</td>
-						<td>			
-							${pr.category} 
-						</td>
-						<td>			
-							${pr.description} 
-						</td>
-						<td>			
-							${pr.amount}
-						</td>
-					</tr>
-				</c:forEach>
-			</table>
-			<br/><br/>
-			<div style="margin: 0 auto; text-align:center;">
-				<input type="submit" name="btnack" id="btnack" style="background-color: #368BC1; color: white; border-radius: 5px; font-size: 18px; width: 150px; height: 45px; border-bottom-right-radius: 15px; border-top-left-radius: 15px;" value="Acknowledge" />
-			</div>
-		</form>
+			<a href="./vendorPr?pan=${user.pan}">notifications</a>
 	</body>
 </html>

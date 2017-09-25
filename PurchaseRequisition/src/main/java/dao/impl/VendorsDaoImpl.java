@@ -23,11 +23,8 @@ import dto.Vendors;
  */
 public class VendorsDaoImpl implements VendorsDAO {
 	private Map<Vendors,String> map;
-	private static LinkedHashSet<PurchaseRequisition> lhs;
+	private LinkedHashSet<PurchaseRequisition> lhs;
 		
-	static {
-		lhs=new LinkedHashSet<PurchaseRequisition>();
-	}
 	/**
 	 * 
 	 */
@@ -100,7 +97,7 @@ public class VendorsDaoImpl implements VendorsDAO {
 	@Override
 	public boolean addPR(String[] pan,PurchaseRequisition pr) {
 		Set<Entry<Vendors,String>> set=map.entrySet();
-		
+		lhs=new LinkedHashSet<PurchaseRequisition>();
 		Iterator itr=set.iterator();
 		while(itr.hasNext()) {
 			Map.Entry<Vendors, String> entry=(Entry<Vendors, String>)itr.next();
