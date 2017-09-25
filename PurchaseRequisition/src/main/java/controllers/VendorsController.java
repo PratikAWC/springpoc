@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import dao.PurchaseOrder;
 import dao.VendorsDAO;
 import dao.impl.PurchaseOrderImpl;
+import dto.Vendors;
 
 
 /**
@@ -41,7 +42,7 @@ public class VendorsController {
 		System.out.println("Raw Data :"+dao.listAllVendors());
 		System.out.println("**********************************");
 		*/map.put("category", dao.vendorsDeptWise(type,name));
-		return "vendors";
+		return "prVendorsList";
 	}
 	@RequestMapping(value="sendNotification",method=RequestMethod.POST)
 	public String sendNotification(@RequestParam String type,@RequestParam String name,@RequestParam String[] pan,ModelMap map) {
@@ -53,5 +54,10 @@ public class VendorsController {
 		map.put("type", type);
 		//map.put("category", dao.addPR(pan, po.listPR(name)));
 		return "redirect:vendors";
+	}
+	@RequestMapping(value="acknowledgement",method=RequestMethod.POST)
+	public void getData(@RequestParam String pr,String vendor) {
+		System.out.println("PR :"+pr);
+		System.out.println("User :"+vendor);
 	}
 }

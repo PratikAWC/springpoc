@@ -39,12 +39,21 @@
 				<td style="color: #368BC1; width: 50%; font-size: 16px; font-weight: bold;">Your Notifications,</td>
 			</tr>
 		</table>			
+		<form action="./acknowledgement" method="post">
+		<!-- **************************************************************************** -->
+		<input type="hidden" name="vendor" value="${user.name}">
+		<!-- **************************************************************************** -->
 		<table border="1" style="width: 50%; border-collapse: collapse; border-color: #006400; margin: 0 auto;">
 			<tr style="height: 35px; text-align: center; color: navy; background-color: #F5F5F5; font-weight: bold;">
 				<td>TYPE</td><td>NAME</td><td>CATEGORY</td><td>DESCRIPTION</td><td>AMOUNT</td>
 			</tr>
 			<c:forEach items="${user.pr}" var="pr">
 				<tr style="height: 30px; text-align: center;">
+				<!-- **************************************************************************** -->
+					<td>
+						<input type="checkbox" name="pr" value="${pr.name}">
+					</td>
+				<!-- **************************************************************************** -->	
 					<td>			
 						${pr.type} 
 					</td>
@@ -63,5 +72,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+			<input type="submit" value="acknowledge">
+		</form>
 	</body>
 </html>
