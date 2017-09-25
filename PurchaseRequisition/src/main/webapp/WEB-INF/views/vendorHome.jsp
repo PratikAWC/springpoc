@@ -41,7 +41,7 @@
 		</table>			
 		<form action="./acknowledgement" method="post">
 		<!-- **************************************************************************** -->
-		<input type="hidden" name="vendor" value="${user.name}">
+		<input type="hidden" name="vendorx" value="${user.pan}">
 		<!-- **************************************************************************** -->
 		<table border="1" style="width: 50%; border-collapse: collapse; border-color: #006400; margin: 0 auto;">
 			<tr style="height: 35px; text-align: center; color: navy; background-color: #F5F5F5; font-weight: bold;">

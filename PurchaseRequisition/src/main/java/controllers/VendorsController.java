@@ -56,8 +56,8 @@ public class VendorsController {
 		return "redirect:vendors";
 	}
 	@RequestMapping(value="acknowledgement",method=RequestMethod.POST)
-	public void getData(@RequestParam String pr,String vendor) {
+	public void getData(@RequestParam String pr,String vendorx) {
 		System.out.println("PR :"+pr);
-		System.out.println("User :"+vendor);
+		System.out.println("User :"+vendorx);
 	}
 }
