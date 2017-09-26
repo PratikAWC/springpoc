@@ -50,6 +50,10 @@
 			</tr>
 		</table>
 		<br><br>
-			<a href="./vendorPr?pan=${user.pan}">notifications</a>
+		<div style="width: 90%; text-align:center;">
+			<a href="./vendorPr?pan=${user.pan}">
+				<button style="background-color: #368BC1; color: white; border-radius: 5px; font-size: 18px; width: 150px; height: 35px; border-bottom-right-radius: 15px; border-top-left-radius: 15px;">Notifications</button>
+			</a>	
+		</div>
 	</body>
 </html>
