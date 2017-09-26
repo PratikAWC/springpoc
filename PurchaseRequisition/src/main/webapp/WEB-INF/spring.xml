@@ -45,27 +45,60 @@
     	<property name="amount" value="80000"/>
     </bean>
     
+    <bean id="pr4" class="dto.PurchaseRequisition">
+    	<property name="type" value="IT"/>
+    	<property name="name" value="H00785"/>
+    	<property name="category" value="Hardware"/>
+    	<property name="description" value="Desktop"/>
+    	<property name="amount" value="90000"/>
+    </bean>
+    <bean id="pr5" class="dto.PurchaseRequisition">
+    	<property name="type" value="Inventory"/>
+    	<property name="name" value="H00495"/>
+    	<property name="category" value="Equipment"/>
+    	<property name="description" value="HP Printer"/>
+    	<property name="amount" value="50000"/>
+    </bean>
+    <bean id="pr6" class="dto.PurchaseRequisition">
+    	<property name="type" value="Service"/>
+    	<property name="name" value="A00905"/>
+    	<property name="category" value="labor"/>
+    	<property name="description" value="Construction Workers"/>
+    	<property name="amount" value="90000"/>
+    </bean>
+    
+    
+    
     <bean id="pr" class="dao.impl.PurchaseOrderImpl">
     	<property name="list">
     		<list>
     			<ref bean="pr1"/>
     			<ref bean="pr2"/>
     			<ref bean="pr3"/>
+    			<ref bean="pr4"/>
+    			<ref bean="pr5"/>
+    			<ref bean="pr6"/>
     		</list>
     	</property>
     </bean>
     
     <bean id="vendorImpl" class="dao.impl.VendorsDaoImpl">
+    	<property name="list">
+    		<list></list>
+    	</property>
+    	<property name="lhs">
+    		<set></set>
+    	</property>
     	<property name="map">
     		<map>
-    			<entry value="IT" key-ref="v1"></entry>
-    			<entry value="Inventory" key-ref="v2"></entry>
-    			<entry value="Service" key-ref="v3"></entry>
-    			<entry value="Inventory" key-ref="v4"></entry>
-    			<entry value="IT" key-ref="v5"></entry>
-    			<entry value="Inventory" key-ref="v6"></entry>
-    			<entry value="Service" key-ref="v7"></entry>
-    			<entry value="Inventory" key-ref="v8"></entry>
+    			<entry key-ref="v1" value="IT" ></entry>
+    			<entry key-ref="v2" value="Inventory"></entry>
+    			<entry key-ref="v3" value="Service"></entry>
+    			<entry key-ref="v4" value="Inventory"></entry>
+    			<entry key-ref="v5"  value="IT"></entry>
+    			<entry key-ref="v6" value="Inventory"></entry>
+    			<entry key-ref="v7" value="Service"></entry>
+    			<entry key-ref="v8" value="Inventory"></entry>
     		</map>
     	</property>
     </bean>

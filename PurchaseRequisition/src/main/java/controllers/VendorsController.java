@@ -51,16 +51,18 @@ public class VendorsController {
 		System.out.println("Filtered Data"+dao.vendorsDeptWise(type, name));
 		System.out.println("Raw Data :"+dao.listAllVendors());
 		System.out.println("**********************************");
-		*/map.put("category", dao.vendorsDeptWise(type,name));
+		*/
+		System.out.println("Vendors according to Dept :"+dao.vendorsDeptWise(type,name));
+		map.put("category", dao.vendorsDeptWise(type,name));
 		return "prVendorsList";
 	}
 	@RequestMapping(value="sendNotification",method=RequestMethod.POST)
 	public String sendNotification(@RequestParam String type,@RequestParam String name,@RequestParam String[] pan,ModelMap map) {
 		dao.addPR(pan, po.listPR(name));
-		/*System.out.println("==================================");
-		System.out.println(dao.vendorsDeptWise(type, name));
 		System.out.println("==================================");
-		*/map.put("name",name);
+		System.out.println("Notification Sent :"+dao.vendorsDeptWise(type, name));
+		System.out.println("==================================");
+		map.put("name",name);
 		map.put("type", type);
 		//map.put("category", dao.addPR(pan, po.listPR(name)));
 		return "redirect:vendors";
@@ -88,8 +90,8 @@ public class VendorsController {
 		return "vendorPRList";
 	}
 	@RequestMapping(value="acknowledge",method=RequestMethod.POST)
-	public String acknowledge(@RequestParam String prname,@RequestParam String ack,@RequestParam String vendor,ModelMap map) {
-		System.out.println("PR Name: "+prname);
+	public String acknowledge(@RequestParam String[] prname,@RequestParam String[] ack,@RequestParam String vendor,@RequestParam String[] amount,ModelMap map) {
+		/*System.out.println("PR Name: "+prname);
 		System.out.println("ack :"+ack);
 		if(ack.equals("no")) {
 			//System.out.println("Vendors for Updation :"+dao.getVendor(vendor));
@@ -97,14 +99,18 @@ public class VendorsController {
 			lhm.put(dao.getVendor(vendor), 0.0f);
 			pr.setVendorPrice(lhm);
 			map.put("pan", vendor);
-			return "redirect:vendorPr";
-		}
+			return "redirect:vendorPr";*/
+			for(int i=0;i<prname.length;i++) {
+				System.out.println("PrName :"+prname[i]+"\t"+"ACK :"+ack[i]+"\t"+"Vendor :"+vendor+"\t"+"Amount :"+amount[i]);
+			}
+		/*}
 		else {
 			PurchaseRequisition pr=po.listPR(prname);
 			lhm.put(dao.getVendor(vendor), 1.0f);
 			pr.setVendorPrice(lhm);
 			map.put("vendor", vendor);
 			return "bidUi";
-		}
+		}*/
+			return "";
 	}
 }

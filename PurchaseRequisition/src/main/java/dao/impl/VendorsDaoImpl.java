@@ -24,7 +24,7 @@ import dto.Vendors;
 public class VendorsDaoImpl implements VendorsDAO {
 	private Map<Vendors,String> map;
 	private LinkedHashSet<PurchaseRequisition> lhs;
-		
+	private List<Vendors> list;	
 	/**
 	 * 
 	 */
@@ -35,9 +35,25 @@ public class VendorsDaoImpl implements VendorsDAO {
 	/**
 	 * @param map
 	 */
-	public VendorsDaoImpl(Map<Vendors, String> map) {
+	public VendorsDaoImpl(Map<Vendors, String> map,List<Vendors> list,LinkedHashSet<PurchaseRequisition> lhs) {
 		super();
 		this.map = map;
+		this.list=list;
+		this.lhs=lhs;
+	}
+	
+	/**
+	 * @return the list
+	 */
+	public List<Vendors> getList() {
+		return list;
+	}
+
+	/**
+	 * @param list the list to set
+	 */
+	public void setList(List<Vendors> list) {
+		this.list = list;
 	}
 
 	/**
@@ -62,13 +78,28 @@ public class VendorsDaoImpl implements VendorsDAO {
 		// TODO Auto-generated method stub
 		return map.keySet();
 	}
+	
+	/**
+	 * @return the lhs
+	 */
+	public LinkedHashSet<PurchaseRequisition> getLhs() {
+		return lhs;
+	}
+
+	/**
+	 * @param lhs the lhs to set
+	 */
+	public void setLhs(LinkedHashSet<PurchaseRequisition> lhs) {
+		this.lhs = lhs;
+	}
 
 	/* (non-Javadoc)
 	 * @see dao.VendorsDAO#vendorsDeptWise()
 	 */
 	@Override
 	public List<Vendors> vendorsDeptWise(String department,String name) {
-		List<Vendors> list=new ArrayList<Vendors>();
+		//list=new ArrayList<Vendors>();
+		list.clear();
 		Set<Entry<Vendors,String>> set=map.entrySet();
 		Iterator<Entry<Vendors,String>> itr=set.iterator();
 		while(itr.hasNext()) {
@@ -96,8 +127,9 @@ public class VendorsDaoImpl implements VendorsDAO {
 
 	@Override
 	public boolean addPR(String[] pan,PurchaseRequisition pr) {
+		//lhs.clear();
 		Set<Entry<Vendors,String>> set=map.entrySet();
-		lhs=new LinkedHashSet<PurchaseRequisition>();
+		//lhs=new LinkedHashSet<PurchaseRequisition>();
 		Iterator itr=set.iterator();
 		while(itr.hasNext()) {
 			Map.Entry<Vendors, String> entry=(Entry<Vendors, String>)itr.next();
