@@ -100,6 +100,9 @@ public class VendorsController {
 			return "redirect:vendorPr";
 		}
 		else {
+			PurchaseRequisition pr=po.listPR(prname);
+			lhm.put(dao.getVendor(vendor), 1.0f);
+			pr.setVendorPrice(lhm);
 			map.put("vendor", vendor);
 			return "bidUi";
 		}
