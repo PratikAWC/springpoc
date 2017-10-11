@@ -14,7 +14,7 @@
 			<table border="1" style="width: 90%; border-collapse: collapse; border-color: #006400;">
 			<!-- <tr style="height: 35px; text-align: center; color: white; background-color: #778899;"> -->
 				<tr style="height: 35px; text-align: center; color: white; background-color: #368BC1;">
-					<td>TYPE</td><td>NAME</td><td>CATEGORY</td><td>DESCRIPTION</td><td>AMOUNT</td>
+					<td>TYPE</td><td>NAME</td><td>CATEGORY</td><td>DESCRIPTION</td><td>AMOUNT</td><td>NOTIFICATIONS</td>
 					<!-- <td>Type</td><td>Name</td><td>Category</td><td>Description</td><td>Amount</td> -->
 				</tr>
 				<c:forEach items="${pr}" var="prs">
@@ -35,6 +35,11 @@
 					  			</tr>
 					  		</table>				  		
 					  	</td>
+					  	<td style="text-align: center;">
+					  					<a href="./prNotifications?name=${prs.name}">
+								  			<button style="background-color: #368BC1; color: white; border-radius: 5px; width: 120px; height: 25px; border-bottom-right-radius: 15px; border-top-left-radius: 15px;">Notifications</button>
+								  		</a>
+					  				</td>
 					<tr>
 				</c:forEach>
 			</table>

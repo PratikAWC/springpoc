@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,7 @@ public class VendorsController {
 		map.put("category", dao.vendorsDeptWise(type,name));
 		return "prVendorsList";
 	}
+	
 	@RequestMapping(value="sendNotification",method=RequestMethod.POST)
 	public String sendNotification(@RequestParam String type,@RequestParam String name,@RequestParam String[] pan,ModelMap map) {
 		dao.addPR(pan, po.listPR(name));
@@ -91,26 +93,21 @@ public class VendorsController {
 	}
 	@RequestMapping(value="acknowledge",method=RequestMethod.POST)
 	public String acknowledge(@RequestParam String[] prname,@RequestParam String[] ack,@RequestParam String vendor,@RequestParam String[] amount,ModelMap map) {
-		/*System.out.println("PR Name: "+prname);
-		System.out.println("ack :"+ack);
-		if(ack.equals("no")) {
-			//System.out.println("Vendors for Updation :"+dao.getVendor(vendor));
-			PurchaseRequisition pr=po.listPR(prname);
-			lhm.put(dao.getVendor(vendor), 0.0f);
-			pr.setVendorPrice(lhm);
-			map.put("pan", vendor);
-			return "redirect:vendorPr";*/
+			Vendors v1=dao.getVendor(vendor);
 			for(int i=0;i<prname.length;i++) {
-				System.out.println("PrName :"+prname[i]+"\t"+"ACK :"+ack[i]+"\t"+"Vendor :"+vendor+"\t"+"Amount :"+amount[i]);
+				//System.out.println("SEE PR :"+po.listPR(prname[i]));
+				Map<Vendors, Float> mapx=new LinkedHashMap<Vendors,Float>();
+				mapx.put(v1, Float.parseFloat(amount[i]));
+				po.listPR(prname[i]).setVendorPrice(mapx);
+				po.listPR(prname[i]);
 			}
-		/*}
-		else {
-			PurchaseRequisition pr=po.listPR(prname);
-			lhm.put(dao.getVendor(vendor), 1.0f);
-			pr.setVendorPrice(lhm);
-			map.put("vendor", vendor);
-			return "bidUi";
-		}*/
-			return "";
+			map.put("pan", v1.getPan());
+			return "redirect:vendorPr";
+	}
+	@RequestMapping(value="prNotifications", method=RequestMethod.GET)
+	public String prNotifications(@RequestParam String name,ModelMap map) {
+		//map.put("name", name);
+		map.put("pr", po.listPR(name));
+		return "prNotifications";
 	}
 }

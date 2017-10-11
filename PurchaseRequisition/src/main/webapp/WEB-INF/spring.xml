@@ -29,6 +29,9 @@
     	<property name="category" value="Hardware"/>
     	<property name="description" value="Laptop"/>
     	<property name="amount" value="100000"/>
+    	<!-- <property name="vendorPrice">
+    		<map></map>
+    	</property> -->
     </bean>
     <bean id="pr2" class="dto.PurchaseRequisition">
     	<property name="type" value="Inventory"/>
@@ -36,6 +39,9 @@
     	<property name="category" value="Equipment"/>
     	<property name="description" value="Canon Projector"/>
     	<property name="amount" value="200000"/>
+    	<!-- <property name="vendorPrice">
+    		<map></map>
+    	</property> -->
     </bean>
     <bean id="pr3" class="dto.PurchaseRequisition">
     	<property name="type" value="Service"/>
@@ -43,6 +49,9 @@
     	<property name="category" value="labor"/>
     	<property name="description" value="Casual Workers"/>
     	<property name="amount" value="80000"/>
+    	<!-- <property name="vendorPrice">
+    		<map></map>
+    	</property> -->
     </bean>
     
     <bean id="pr4" class="dto.PurchaseRequisition">
@@ -51,6 +60,9 @@
     	<property name="category" value="Hardware"/>
     	<property name="description" value="Desktop"/>
     	<property name="amount" value="90000"/>
+    	<!-- <property name="vendorPrice">
+    		<map></map>
+    	</property> -->
     </bean>
     <bean id="pr5" class="dto.PurchaseRequisition">
     	<property name="type" value="Inventory"/>
@@ -58,6 +70,9 @@
     	<property name="category" value="Equipment"/>
     	<property name="description" value="HP Printer"/>
     	<property name="amount" value="50000"/>
+    	<!-- <property name="vendorPrice">
+    		<map></map>
+    	</property> -->
     </bean>
     <bean id="pr6" class="dto.PurchaseRequisition">
     	<property name="type" value="Service"/>
@@ -65,6 +80,9 @@
     	<property name="category" value="labor"/>
     	<property name="description" value="Construction Workers"/>
     	<property name="amount" value="90000"/>
+    	<!-- <property name="vendorPrice">
+    		<map></map>
+    	</property> -->
     </bean>
     
     

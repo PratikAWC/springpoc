@@ -3,7 +3,6 @@
  */
 package dto;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -15,7 +14,6 @@ public class PurchaseRequisition {
 	private String type,name,category,description,amount;
 	private Map<Vendors,Float> vendorPrice;
 	
-	
 	/**
 	 * 
 	 */
@@ -23,8 +21,6 @@ public class PurchaseRequisition {
 		//System.out.println(toString());
 	}
 	
-	
-
 	/**
 	 * @param type
 	 * @param name
@@ -43,8 +39,6 @@ public class PurchaseRequisition {
 		this.amount = amount;
 		this.vendorPrice = vendorPrice;
 	}
-
-
 
 	/**
 	 * @return the type
@@ -118,10 +112,17 @@ public class PurchaseRequisition {
 	 * @param vendorPrice the vendorPrice to set
 	 */
 	public void setVendorPrice(Map<Vendors, Float> vendorPrice) {
-		this.vendorPrice = vendorPrice;
+		/*Set<Entry<Vendors,Float>> setx=vendorPrice.entrySet();
+		Iterator<Entry<Vendors,Float>> itrx=setx.iterator();
+		while(itrx.hasNext()) {
+			Map.Entry<Vendors, Float> entry=(Map.Entry<Vendors, Float>)itrx.next();
+			System.out.println("Entry ki key :"+entry.getKey());
+			System.out.println("Entry ki Value :"+entry.getValue());
+			System.out.println("Map's Check :"+this.vendorPrice);
+			this.vendorPrice.put(entry.getKey(), entry.getValue());
+		}*/
+		this.vendorPrice=vendorPrice;
 	}
-
-
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -131,8 +132,6 @@ public class PurchaseRequisition {
 		return "PurchaseRequisition [type=" + type + ", name=" + name + ", category=" + category + ", description="
 				+ description + ", amount=" + amount + ", vendorPrice=" + vendorPrice + "]";
 	}
-
-
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
@@ -196,5 +195,4 @@ public class PurchaseRequisition {
 			return false;
 		return true;
 	}
-	
 }
