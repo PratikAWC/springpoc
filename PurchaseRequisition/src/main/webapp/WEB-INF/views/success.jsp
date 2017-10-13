@@ -5,39 +5,35 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Success</title>		
+		<title>Success</title>	
+		<style>
+		body{background-color: #f2f2f2; font-family: Arial, Helvetica, sans-serif;}
+		</style>	
 	</head>
 	<body style="font-family: Arial, Helvetica, sans-serif;">
 		<center>
 		<br/>
-			<div style="color: #368BC1; text-align: right; width: 90%; font-size: 16px; font-weight: bold;">Welcome, ${user}&nbsp;&nbsp;</div>
-			<table border="1" style="width: 90%; border-collapse: collapse; border-color: #006400;">
+			<div style="color: #0054a6;text-align: right;width: 90%;font-size: 18px;font-weight: bold;margin: 13px 0px;">Welcome, ${user}&nbsp;&nbsp;</div>
+			<table border="1" style="width: 90%; border-collapse: collapse; border-color: #0054a6;">
 			<!-- <tr style="height: 35px; text-align: center; color: white; background-color: #778899;"> -->
-				<tr style="height: 35px; text-align: center; color: white; background-color: #368BC1;">
-					<td>TYPE</td><td>NAME</td><td>CATEGORY</td><td>DESCRIPTION</td><td>AMOUNT</td><td>NOTIFICATIONS</td>
+				<tr style="height: 35px; text-align: center; color: white; background-color: #0054a6;">
+					<td>TYPE</td><td>NAME</td><td>CATEGORY</td><td>DESCRIPTION</td><td>AMOUNT</td><td>VENDOR</td> <td>NOTIFICATIONS</td>
 					<!-- <td>Type</td><td>Name</td><td>Category</td><td>Description</td><td>Amount</td> -->
 				</tr>
 				<c:forEach items="${pr}" var="prs">
-					<tr style="height: 30px;">
+					<tr style="height: 35px; text-align:center;  background-color:#dcdcdc; font-size:14px;">
 						<td style=" text-align: center;">${prs.type}</td>
 						<td style=" text-align: center;">${prs.name}</td>
 						<td style=" text-align: center;">${prs.category}</td>
 					  	<td style=" text-align: center;">${prs.description}</td> 
-					  	<td style="width: 20%;">
-					  		<table>
-					  			<tr>
-					  				<td style="width: 150px; text-align: center;">${prs.amount}</td>
-					  				<td style="text-align: right;">
-					  					<a href="./vendors?name=${prs.name}&type=${prs.type}">
-								  			<button style="background-color: #368BC1; color: white; border-radius: 5px; width: 90px; height: 25px; border-bottom-right-radius: 15px; border-top-left-radius: 15px;">Vendor</button>
-								  		</a>
-					  				</td>
-					  			</tr>
-					  		</table>				  		
-					  	</td>
+					  	<td style=" text-align: center;">${prs.amount}</td>
+					  	<td style=" text-align: center;"><a href="./vendors?name=${prs.name}&type=${prs.type}">
+								  			<button style="background-color: #0054a6;color: white;border-radius: 5px;width: 120px;height: 32px;border-radius: 15px;border-color: #368bc1;margin: 5px;">Vendor</button>
+								  		</a></td>
+					  	
 					  	<td style="text-align: center;">
 					  					<a href="./prNotifications?name=${prs.name}">
-								  			<button style="background-color: #368BC1; color: white; border-radius: 5px; width: 120px; height: 25px; border-bottom-right-radius: 15px; border-top-left-radius: 15px;">Notifications</button>
+								  			<button style="background-color: #0054a6;color: white;border-radius: 5px;width: 120px;height: 32px;border-radius: 15px;border-color: #368bc1;margin: 5px;">Notifications</button>
 								  		</a>
 					  				</td>
 					<tr>

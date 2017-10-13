@@ -8,31 +8,27 @@
 		<style>
 			#grad1 {
 			    height: 300px;
-                background-color: #FFFFFF;
-                /* For WebKit (Safari, Chrome, etc) */
-                background: #FFFFFF -webkit-gradient(linear, left top, left bottom, from(#73ADC0), to(#FFFFFF)) no-repeat;
-                /* Mozilla,Firefox/Gecko */
-                background: #FFFFFF -moz-linear-gradient(top, #73ADC0, #FFFFFF) no-repeat;
-                /* IE 5.5 - 7 */
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#73ADC0, endColorstr=#FFFFFF) no-repeat;
-                /* IE 8 */
-                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#73ADC0, endColorstr=#73ADC0)" no-repeat;			    
+               /* For WebKit (Safari, Chrome, etc) */
+              background-color: #d5d8df;
+               
+               		    
 			}
            /* Full-width input fields */
            input[type=text], input[type=password] {
               	width: 100%;
 				padding: 12px 20px;
-               	margin: 8px 0;
+               	margin: 20px 0;
                	display: inline-block;
-               	border: 1px solid #ccc;
-               	border-color: tomato;
+               	border: 1px solid #0054a6;
+               	background-color:#fff;
+               
                	border-radius: 5px;
                	box-sizing: border-box;
            }
 
            /* Set a style for all buttons */
            button {
-               background-color: #368BC1;
+               background-color:#0054a6;
                color: white;
                padding: 14px 20px;
                margin: 8px 0;
@@ -42,6 +38,7 @@
                font-size: 15px;
                font-weight: bold;
                border-radius: 5px;
+               float:right;
            }
 
            /* Add padding to container elements */
@@ -49,8 +46,13 @@
                width: 350px;
                margin: 0 auto;
                padding: 16px;
-               border: 1px cornflowerblue solid;
-               border-radius: 10px;
+               border: 1px #384148 solid;
+               border-radius: 0px 0px 8px 8px;
+               background-color:#fff;
+               box-shadow: 0px 4px 5px 0px #333;
+               color:#333;
+               
+            
            }
 
            /* Clear floats */
@@ -90,8 +92,8 @@
             <div class="outer">
                 <div class="middle">
                     <div class="inner">
-                    	<div style="font-size: 20px; text-align: center; color: navy;">
-                            <b>Welcome to Dalmia Group</b><br/><br/>
+                    	<div style="font-size: 24px;text-align: center;color: #fff;margin: auto;width: 350px;background-color:#0054a6;padding: 8px 16px;border-radius: 8px 8px 0px 0px;height: 30px;">
+                            Welcome to Dalmia Group
                         </div>
                         <div class="container">
                             <label><b>User ID</b></label>
